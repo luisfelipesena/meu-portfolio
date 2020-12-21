@@ -14,6 +14,7 @@ export const Header = styled.div`
     flex: 0 1 1400px;
     padding: 2em;
     animation: fadein 1s;
+    color: ${(props) => props.theme.colors.headerText};
     h1 {
       animation: go-forward 1s;
     }
@@ -27,7 +28,6 @@ export const Header = styled.div`
       justify-content: space-between;
       animation: go-back 1s;
       span {
-        color: ${(props) => props.theme.colors.text};
         border-bottom: 2px solid transparent;
         cursor: pointer;
         font-size: 1.2em;
