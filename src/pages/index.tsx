@@ -1,21 +1,28 @@
 import Head from "next/head";
-import Image from "next/image";
+import { GetStaticProps } from "next";
 import { HeaderComponent } from "../components/Header";
 import { MainComponent } from "../components/MainHomepage";
 
-import minhaFoto from "../assets/minha-foto.jpeg";
-
-const Home: React.FC = () => {
+const Home = ({ data }) => {
   return (
     <>
       <Head>
         <title>Meu Portifólio</title>
       </Head>
-
       <HeaderComponent />
-      <MainComponent />
+      <MainComponent data={data} />
     </>
   );
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const response = await fetch("http://ip-api.com/json");
+  const data = await response.json();
+  return {
+    props: {
+      data,
+    },
+  };
 };
 
 export default Home;
