@@ -1,11 +1,5 @@
-import { Header } from "../../styles/pages/Home";
-import Image from "next/image";
+import { Header } from "./style";
 import Link from "next/link";
-import ArrowUp from "../../assets/arrow-up.png";
-import LogoGithub from "../../assets/github.svg";
-import LogoLinkedln from "../../assets/linkedin.svg";
-import Contatos from "../../assets/contatos.svg";
-import AboutMe from "../../assets/about-me.svg";
 
 export const HeaderComponent = () => {
   return (
@@ -15,22 +9,22 @@ export const HeaderComponent = () => {
         <div>
           <Link href="/contato">
             <span title="Sobre Mim">
-              <AboutMe />
+              <img src={"./about-me.svg"} alt="Sobre Mim" />
             </span>
           </Link>
           <Link href="/contato">
             <span title="Contatos">
-              <Contatos />
+              <img src={"./contatos.svg"} alt="Contatos" />
             </span>
           </Link>
           <Link href="https://github.com/luisfelipesena">
             <span title="Github">
-              <LogoGithub />
+              <img src={"./github.svg"} alt="Github" />
             </span>
           </Link>
           <Link href="https://www.linkedin.com/in/luisfelipesena/">
             <span title="Linkedln">
-              <LogoLinkedln />
+              <img src={"./linkedin.svg"} alt="Linkedln" />
             </span>
           </Link>
         </div>
@@ -40,7 +34,7 @@ export const HeaderComponent = () => {
         <span>
           111
           <div className="image">
-            <Image src={ArrowUp} alt="Arrow Up" width={16} height={16} />
+            <img src={"./arrow-up.png"} alt="Arrow Up" />
           </div>
         </span>
       </div>

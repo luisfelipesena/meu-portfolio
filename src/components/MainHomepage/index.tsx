@@ -1,4 +1,4 @@
-import { Main } from "../../styles/pages/Home";
+import { Main } from "./style";
 
 export const MainComponent = ({ data }) => {
   return (
