@@ -2,13 +2,13 @@ import { useState } from "react";
 import { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/global";
-import { Whitetheme, Darktheme } from "../styles/theme";
+import theme, { Darktheme } from "../styles/theme";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [choosedDarkTheme, setChoosedDarkTheme] = useState(false);
   return (
     <>
-      <ThemeProvider theme={choosedDarkTheme ? Darktheme : Whitetheme}>
+      <ThemeProvider theme={choosedDarkTheme ? Darktheme : theme}>
         <Component {...pageProps} />
         <GlobalStyle />
       </ThemeProvider>
