@@ -20,19 +20,23 @@ export default function Home({ acessos = null }: iData): JSX.Element {
   );
 }
 
-// export async function getStaticProps() {
-//   await fetch(
-//     `http://${isDev ? "localhost:3000" : "luisfelipe.live"}/api/insertVisitor`
-//   );
-//   const res = await fetch(
-//     `http://${isDev ? "localhost:3000" : "luisfelipe.live"}/api/getVisitors`
-//   );
-//   const acessos: iData = await res.json();
+export async function getStaticProps() {
+  await fetch(
+    isDev
+      ? "http://localhost:3000/api/insertVisitor"
+      : "https://luisfelipe.live/api/insertVisitor"
+  );
+  const res = await fetch(
+    isDev
+      ? "http://localhost:3000/api/getVisitors"
+      : "https://luisfelipe.live/api/getVisitors"
+  );
+  const acessos: iData = await res.json();
 
-//   return {
-//     props: {
-//       acessos: acessos.data,
-//     },
-//     revalidate: 300,
-//   };
-// }
+  return {
+    props: {
+      acessos: acessos.data,
+    },
+    revalidate: 300,
+  };
+}
