@@ -1,5 +1,5 @@
-export function UseFetch(url, metodo, conteudo, token = null) {
-  return fetch(url, {
+export async function UseFetch(url, metodo, conteudo, token = null) {
+  const response = await fetch(url, {
     method: metodo,
     headers: {
       "Content-Type": "application/json",
@@ -7,4 +7,5 @@ export function UseFetch(url, metodo, conteudo, token = null) {
     },
     body: JSON.stringify(conteudo),
   });
+  return response.json();
 }

@@ -1,9 +1,13 @@
 import { Header } from "./style";
 import Link from "next/link";
 import { Skeleton } from "@material-ui/lab";
-import { iData } from "../../pages";
+import { UseFetch } from "../../helpers/UseFetch";
+import useSWR from "swr";
 
-export const HeaderComponent: React.FC<iData> = ({ acessos }) => {
+export const HeaderComponent: React.FC = () => {
+  const fetcherGet = (url) => UseFetch(url, "GET", undefined);
+  const { data } = useSWR("/api/getVisitors", fetcherGet);
+
   return (
     <Header>
       <div className="container">
@@ -31,11 +35,11 @@ export const HeaderComponent: React.FC<iData> = ({ acessos }) => {
           </Link>
         </div>
       </div>
-      {acessos ? (
+      {data ? (
         <div className="estatisticas">
           <h4>Acessos :</h4>
           <span>
-            {acessos}
+            {data.data}
             <div className="image">
               <img src={"./arrow-up.png"} alt="Arrow Up" />
             </div>
