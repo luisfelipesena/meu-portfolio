@@ -1,4 +1,3 @@
-import { iData } from "../../pages";
 import { Main } from "./style";
 
 export const MainComponent: React.FC = () => {
