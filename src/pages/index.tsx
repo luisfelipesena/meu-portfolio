@@ -21,12 +21,12 @@ export default function Home({ acessos = null }: iData): JSX.Element {
 }
 
 export async function getStaticProps() {
-  await fetch(
-    `http://${isDev ? "localhost:3000" : "luisfelipe.live"}/api/insertVisitor`
-  );
-  const res = await fetch(
-    `http://${isDev ? "localhost:3000" : "luisfelipe.live"}/api/getVisitors`
-  );
+  //   await fetch(
+  //     `http://${isDev ? "localhost:3000" : "luisfelipe.live"}/api/insertVisitor`
+  //   );
+  //   const res = await fetch(
+  //     `http://${isDev ? "localhost:3000" : "luisfelipe.live"}/api/getVisitors`
+  //   );
   const acessos: iData = await res.json();
 
   return {
