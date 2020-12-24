@@ -34,18 +34,16 @@ export const Header = styled.div`
         font-size: 1.2em;
         font-weight: bold;
         transition: 0.2s;
-        animation: fadein 1.5s;
       }
       span:hover {
-        color: white;
-        border-bottom: 2px solid white;
+        animation: shake 0.4s;
       }
     }
   }
 
   .estatisticas {
     margin: 0 1em;
-    color: ${(props) => props.theme.colors.secondaryText};
+    color: ${(props) => props.theme.colors.headerText};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,6 +59,20 @@ export const Header = styled.div`
     }
   }
 
+  @keyframes shake {
+    0% {
+      transform: rotate(0deg);
+    }
+    33% {
+      transform: rotate(15deg);
+    }
+    66% {
+      transform: rotate(-15deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
   @keyframes go-back {
     0% {
       transform: translateX(250px);

@@ -1,4 +1,4 @@
-const theme = {
+const Darktheme = {
   colors: {
     background: "#121214",
     text: "#e1e1e6",
@@ -8,4 +8,14 @@ const theme = {
   },
 };
 
-export default theme;
+const Whitetheme = {
+  colors: {
+    background: "#fffcfc",
+    text: "#4c4a4a",
+    secondaryText: "#8257e6",
+    headerText: "#191616",
+    primary: "#67f891",
+  },
+};
+
+export { Whitetheme, Darktheme };

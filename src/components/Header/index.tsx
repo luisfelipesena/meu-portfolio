@@ -1,7 +1,9 @@
 import { Header } from "./style";
 import Link from "next/link";
+import { Skeleton } from "@material-ui/lab";
+import { iData } from "../../pages";
 
-export const HeaderComponent = () => {
+export const HeaderComponent: React.FC<iData> = ({ acessos }) => {
   return (
     <Header>
       <div className="container">
@@ -29,15 +31,21 @@ export const HeaderComponent = () => {
           </Link>
         </div>
       </div>
-      <div className="estatisticas">
-        <h4>Acessos :</h4>
-        <span>
-          111
-          <div className="image">
-            <img src={"./arrow-up.png"} alt="Arrow Up" />
-          </div>
-        </span>
-      </div>
+      {acessos ? (
+        <div className="estatisticas">
+          <h4>Acessos :</h4>
+          <span>
+            {acessos}
+            <div className="image">
+              <img src={"./arrow-up.png"} alt="Arrow Up" />
+            </div>
+          </span>
+        </div>
+      ) : (
+        <div className="estatisticas">
+          <Skeleton variant="circle" width={"4.4em"} height={"4em"} />
+        </div>
+      )}
     </Header>
   );
 };

@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Contato = () => {
+export default function Contato(): JSX.Element {
   return (
     <>
       <div>OI</div>
@@ -8,6 +8,4 @@ const Contato = () => {
       <Link href="/">Pessoa</Link>
     </>
   );
-};
-
-export default Contato;
+}

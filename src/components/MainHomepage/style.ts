@@ -7,11 +7,12 @@ export const Main = styled.div`
   .container {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     flex: 0 1 1500px;
     padding: 2em;
     margin-top: 2em;
     font-size: 1.5em;
-    box-shadow: 0px 0px 10px white;
+    box-shadow: 0px 0px 10px ${(props) => props.theme.colors.primary};
     border-radius: 20px;
     animation: go-full-forward 1.5s;
   }
