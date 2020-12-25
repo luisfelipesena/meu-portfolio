@@ -34,7 +34,7 @@ export const HeaderComponent = () => {
       <div className="estatisticas">
         <h4>Acessos</h4>
         <span>
-          <img src="http://contador.kinghost.com.br/contador.cgi?ft=1|df=luisfelipe.live" />
+          <img src="http://contador.kinghost.com.br/contador.cgi?ft=1|df=www.luisfelipe.live" />
         </span>
       </div>
     </Header>
