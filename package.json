@@ -1,5 +1,5 @@
 {
-  "name": "learn-starter",
+  "name": "meu-portifolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -20,9 +20,11 @@
     "mongodb": "^3.6.3",
     "next": "^10.0.0",
     "next-images": "^1.6.2",
+    "polished": "^4.0.5",
     "react": "16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
+    "react-switch": "^5.0.1",
     "style-loader": "^2.0.0",
     "styled-components": "^5.2.1",
     "swr": "^0.3.11",

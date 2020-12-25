@@ -1,31 +1,47 @@
-import { useState } from "react";
+import React, { useState, useContext, createContext } from "react";
 import { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/global";
-import theme, { Darktheme } from "../styles/theme";
+import LightTheme, { Darktheme } from "../styles/themes";
+import Switch from "react-switch";
+import { shade } from "polished";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const [choosedDarkTheme, setChoosedDarkTheme] = useState(false);
+  const [choosedTheme, setChoosedTheme] = useState(LightTheme);
+  const toogleTheme = () => {
+    setChoosedTheme(
+      choosedTheme.title === LightTheme.title ? Darktheme : LightTheme
+    );
+  };
   return (
     <>
-      <ThemeProvider theme={choosedDarkTheme ? Darktheme : theme}>
+      <ThemeProvider theme={choosedTheme}>
         <Component {...pageProps} />
         <GlobalStyle />
       </ThemeProvider>
-      <button
-        onClick={() => setChoosedDarkTheme((t) => !t)}
+      <div
         style={{
           position: "absolute",
-          top: "1em",
+          top: "0.5em",
           left: "1em",
-          border: "1px solid green",
-          outline: 0,
-          borderRadius: "40px",
-          padding: "0.5em",
-          cursor: "pointer",
-          background: choosedDarkTheme ? "white" : "black",
+          animation: "go-forward 1.5s",
         }}
-      />
+        onClick={() => {
+          toogleTheme();
+        }}
+      >
+        <Switch
+          onChange={() => {}}
+          checked={choosedTheme.title === Darktheme.title}
+          checkedIcon={false}
+          uncheckedIcon={false}
+          height={10}
+          width={40}
+          handleDiameter={20}
+          offColor={shade(0.15, choosedTheme.colors.primary)}
+          onColor="#191616"
+        />
+      </div>
     </>
   );
 };

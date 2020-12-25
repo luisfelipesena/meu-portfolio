@@ -12,12 +12,13 @@ export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex: 0 1 1400px;
+    flex: 0 1 1000px;
     padding: 2em;
     animation: fadein 1s;
     color: ${(props) => props.theme.colors.headerText};
     h1 {
       animation: go-forward 1.5s;
+      white-space: nowrap;
     }
 
     div {

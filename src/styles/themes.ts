@@ -1,4 +1,5 @@
-const theme = {
+const LightTheme = {
+  title: "light",
   colors: {
     background: "#fffcfc",
     text: "#4c4a4a",
@@ -9,6 +10,7 @@ const theme = {
 };
 
 export const Darktheme = {
+  title: "dark",
   colors: {
     background: "#121214",
     text: "#e1e1e6",
@@ -18,4 +20,4 @@ export const Darktheme = {
   },
 };
 
-export default theme;
+export default LightTheme;

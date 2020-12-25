@@ -1,17 +1,13 @@
 import { Header } from "./style";
 import Link from "next/link";
-import { Skeleton } from "@material-ui/lab";
-import { UseFetch } from "../../helpers/UseFetch";
-import useSWR from "swr";
+import React from "react";
 
-export const HeaderComponent: React.FC = () => {
-  const fetcherGet = (url) => UseFetch(url, "GET", undefined);
-  const { data } = useSWR("/api/getVisitors", fetcherGet);
-
+export const HeaderComponent = () => {
   return (
     <Header>
       <div className="container">
         <h1>Prazer, Luis Felipe</h1>
+
         <div>
           <Link href="/contato">
             <span title="Sobre Mim">
@@ -35,21 +31,12 @@ export const HeaderComponent: React.FC = () => {
           </Link>
         </div>
       </div>
-      {data ? (
-        <div className="estatisticas">
-          <h4>Acessos :</h4>
-          <span>
-            {data.data}
-            <div className="image">
-              <img src={"./arrow-up.png"} alt="Arrow Up" />
-            </div>
-          </span>
-        </div>
-      ) : (
-        <div className="estatisticas">
-          <Skeleton variant="circle" width={"4.4em"} height={"4em"} />
-        </div>
-      )}
+      <div className="estatisticas">
+        <h4>Acessos</h4>
+        <span>
+          <img src="http://contador.kinghost.com.br/contador.cgi?ft=1|df=luisfelipe.live" />
+        </span>
+      </div>
     </Header>
   );
 };
