@@ -27,6 +27,7 @@ export const Main = styled.div`
       justify-content: center;
       text-align: center;
       flex-direction: column;
+      font-size: calc(0.5em + 1vw);
     }
     @media (max-width: 800px) {
       flex-wrap: wrap;

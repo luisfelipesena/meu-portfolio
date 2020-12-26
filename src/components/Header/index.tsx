@@ -8,6 +8,25 @@ import { Skeleton } from "@material-ui/lab";
 
 const fetchInsertVisitor = (url) => useFetch(url, "POST", undefined);
 const fetchGetVisitors = (url) => useFetch(url, "GET", undefined);
+const links: {
+  title: string;
+  link: string;
+  img: string | null;
+}[] = [
+  { title: "Home", link: "/", img: null },
+  { title: "Sobre Mim", link: "/contato", img: "./about-me.svg" },
+  { title: "Contato", link: "/contato", img: "./contatos.svg" },
+  {
+    title: "Github",
+    link: "https://github.com/luisfelipesena",
+    img: "./github.svg",
+  },
+  {
+    title: "Linkedln",
+    link: "https://www.linkedin.com/in/luisfelipesena/",
+    img: "./linkedin.svg",
+  },
+];
 
 export const HeaderComponent: React.FC = () => {
   const isMobile = useMediaQuery("(max-width: 900px)");
@@ -42,26 +61,18 @@ export const HeaderComponent: React.FC = () => {
             </Link>
 
             <div>
-              <Link href="/contato">
-                <span title="Sobre Mim">
-                  <img src={"./about-me.svg"} alt="Sobre Mim" />
-                </span>
-              </Link>
-              <Link href="/contato">
-                <span title="Contatos">
-                  <img src={"./contatos.svg"} alt="Contatos" />
-                </span>
-              </Link>
-              <Link href="https://github.com/luisfelipesena">
-                <span title="Github">
-                  <img src={"./github.svg"} alt="Github" />
-                </span>
-              </Link>
-              <Link href="https://www.linkedin.com/in/luisfelipesena/">
-                <span title="Linkedln">
-                  <img src={"./linkedin.svg"} alt="Linkedln" />
-                </span>
-              </Link>
+              {links.map((l) => {
+                if (l.title === "Home") {
+                  return <></>;
+                }
+                return (
+                  <Link href={l.link}>
+                    <span title={l.title}>
+                      <img src={l.img} alt={l.title} />
+                    </span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
           <div className="estatisticas">
@@ -98,6 +109,12 @@ export const HeaderComponent: React.FC = () => {
             <Link href="/">
               <h1>Prazer, Luis Felipe</h1>
             </Link>
+            <button
+              className="menu-hamburger"
+              onClick={() => setMenuClicked((e) => !e)}
+            >
+              <img src={"./hamburger.svg"} alt="menu hamburger" />
+            </button>
           </div>
           <div className="bleak" onClick={() => setMenuClicked(false)} />
           <div className="menu-lateral">
@@ -108,26 +125,15 @@ export const HeaderComponent: React.FC = () => {
               <img src={"./hamburger.svg"} alt="menu hamburger" />
             </button>
             <ul>
-              <li>
-                <Link href="/contato">
-                  <span>Sobre Mim</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato">
-                  <span>Sobre Mim</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato">
-                  <span>Sobre Mim</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato">
-                  <span>Sobre Mim</span>
-                </Link>
-              </li>
+              {links.map((l) => {
+                return (
+                  <li onClick={() => setMenuClicked(false)}>
+                    <Link href={l.link}>
+                      <span>{l.title}</span>
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </>

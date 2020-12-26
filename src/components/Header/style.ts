@@ -21,6 +21,7 @@ export const Header = styled.div`
       cursor: pointer;
       animation: go-forward 1.5s;
       white-space: nowrap;
+      font-size: calc(1em + 1vw);
     }
 
     div {
@@ -103,18 +104,19 @@ export const Header = styled.div`
     }
     li {
       display: flex;
-      justify-content: center;
-      padding: 1em 0;
       margin-bottom: 1px solid ${(props) => props.theme.colors.text};
       cursor: pointer;
       span {
+        text-align: center;
+        padding: 1em 0;
+        width: 100%;
         font-size: 1.5em;
         font-weight: bold;
         color: ${(props) => props.theme.colors.text};
       }
     }
     li:hover {
-      background-color: ${(props) => shade(0.5, props.theme.colors.primary)};
+      background-color: rgba(0, 0, 0, 0.2);
     }
   }
 
