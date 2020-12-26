@@ -2,7 +2,7 @@ import { Header } from "./style";
 import Link from "next/link";
 import React from "react";
 import useSWR from "swr";
-import { UseFetch } from "../../helpers/useFetch";
+import { UseFetch } from "../../helpers/UseFetch";
 import { Skeleton } from "@material-ui/lab";
 import { UseMediaQuery } from "../../helpers/useMediaQuery";
 
