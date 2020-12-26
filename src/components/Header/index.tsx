@@ -2,15 +2,15 @@ import { Header } from "./style";
 import Link from "next/link";
 import React from "react";
 import useSWR from "swr";
-import { UseFetch } from "../../helpers/UseFetch";
+import { useFetch } from "../../helpers/Fetch";
+import { useMediaQuery } from "../../helpers/MediaQuery";
 import { Skeleton } from "@material-ui/lab";
-import { UseMediaQuery } from "../../helpers/UseMediaQuery";
 
-const fetchInsertVisitor = (url) => UseFetch(url, "POST", undefined);
-const fetchGetVisitors = (url) => UseFetch(url, "GET", undefined);
+const fetchInsertVisitor = (url) => useFetch(url, "POST", undefined);
+const fetchGetVisitors = (url) => useFetch(url, "GET", undefined);
 
 export const HeaderComponent: React.FC = () => {
-  const isMobile = UseMediaQuery("(max-width: 900px)");
+  const isMobile = useMediaQuery("(max-width: 900px)");
   const [menuClicked, setMenuClicked] = React.useState(false);
 
   const { error: insertError } = useSWR(

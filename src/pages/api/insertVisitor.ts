@@ -1,4 +1,4 @@
-import { UseMongo } from "../../helpers/UseMongo";
+import { useMongo } from "../../helpers/Mongo";
 import { NowRequest, NowResponse } from "@vercel/node";
 import { connectToDatabase } from "../../helpers/Database";
 
@@ -7,7 +7,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   const db = await connectToDatabase(process.env.MONGODB_URI);
 
   const alreadyAcessed = db.collection("visitors").find({ ip: fetchApi.query });
-  const result = await UseMongo(alreadyAcessed);
+  const result = await useMongo(alreadyAcessed);
   if (result.length !== 0) {
     return res.status(400).json({
       status: "error",

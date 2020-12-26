@@ -1,4 +1,4 @@
-export async function UseFetch(url, metodo, conteudo, token = null) {
+export async function useFetch(url, metodo, conteudo, token = null) {
   const response = await fetch(url, {
     method: metodo,
     headers: {
