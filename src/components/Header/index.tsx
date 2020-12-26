@@ -5,17 +5,21 @@ import useSWR from "swr";
 import { useFetch } from "../../helpers/Fetch";
 import { useMediaQuery } from "../../helpers/MediaQuery";
 import { Skeleton } from "@material-ui/lab";
+import { Darktheme } from "../../styles/themes";
+import Switch from "react-switch";
+import { shade } from "polished";
 
 const fetchInsertVisitor = (url) => useFetch(url, "POST", undefined);
 const fetchGetVisitors = (url) => useFetch(url, "GET", undefined);
+
 const links: {
   title: string;
   link: string;
   img: string | null;
 }[] = [
   { title: "Home", link: "/", img: null },
-  { title: "Sobre Mim", link: "/contato", img: "./about-me.svg" },
   { title: "Contato", link: "/contato", img: "./contatos.svg" },
+  { title: "Codepen", link: "/", img: "./codepen.svg" },
   {
     title: "Github",
     link: "https://github.com/luisfelipesena",
@@ -28,7 +32,23 @@ const links: {
   },
 ];
 
-export const HeaderComponent: React.FC = () => {
+interface iProps {
+  toggleTheme(): void;
+  choosedTheme: {
+    title: string;
+    colors: {
+      background: string;
+      text: string;
+      secondaryText: string;
+      headerText: string;
+      primary: string;
+    };
+  };
+}
+export const HeaderComponent: React.FC<iProps> = ({
+  toggleTheme,
+  choosedTheme,
+}) => {
   const isMobile = useMediaQuery("(max-width: 900px)");
   const [menuClicked, setMenuClicked] = React.useState(false);
 
@@ -56,11 +76,12 @@ export const HeaderComponent: React.FC = () => {
       {!isMobile ? (
         <>
           <div className="container">
+            {useSwitch({ toggleTheme, choosedTheme })}
             <Link href="/">
               <h1>Prazer, Luis Felipe</h1>
             </Link>
 
-            <div>
+            <div className="links">
               {links.map((l) => {
                 if (l.title === "Home") {
                   return <></>;
@@ -68,7 +89,11 @@ export const HeaderComponent: React.FC = () => {
                 return (
                   <Link href={l.link}>
                     <span title={l.title}>
-                      <img src={l.img} alt={l.title} />
+                      <img
+                        src={l.img}
+                        alt={l.title}
+                        style={{ height: "36px" }}
+                      />
                     </span>
                   </Link>
                 );
@@ -92,6 +117,7 @@ export const HeaderComponent: React.FC = () => {
       ) : !menuClicked ? (
         <>
           <div className="container">
+            {useSwitch({ toggleTheme, choosedTheme })}
             <Link href="/">
               <h1>Prazer, Luis Felipe</h1>
             </Link>
@@ -106,6 +132,7 @@ export const HeaderComponent: React.FC = () => {
       ) : (
         <>
           <div className="container">
+            {useSwitch({ toggleTheme, choosedTheme })}
             <Link href="/">
               <h1>Prazer, Luis Felipe</h1>
             </Link>
@@ -125,10 +152,10 @@ export const HeaderComponent: React.FC = () => {
               <img src={"./hamburger.svg"} alt="menu hamburger" />
             </button>
             <ul>
-              {links.map((l) => {
+              {links.map((l, i) => {
                 return (
-                  <li onClick={() => setMenuClicked(false)}>
-                    <Link href={l.link}>
+                  <li onClick={() => setMenuClicked(false)} key={i}>
+                    <Link href={l.link} key={i}>
                       <span>{l.title}</span>
                     </Link>
                   </li>
@@ -141,3 +168,28 @@ export const HeaderComponent: React.FC = () => {
     </Header>
   );
 };
+
+function useSwitch({ toggleTheme, choosedTheme }) {
+  return (
+    <div
+      style={{
+        position: "absolute",
+        top: "0.5em",
+        left: "1em",
+        animation: "go-forward 1.5s",
+      }}
+    >
+      <Switch
+        onChange={toggleTheme}
+        checked={choosedTheme.title === Darktheme.title}
+        checkedIcon={false}
+        uncheckedIcon={false}
+        height={10}
+        width={40}
+        handleDiameter={20}
+        offColor={shade(0.15, choosedTheme.colors.primary)}
+        onColor="#191616"
+      />
+    </div>
+  );
+}

@@ -9,7 +9,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   const alreadyAcessed = db.collection("visitors").find({ ip: fetchApi.query });
   const result = await useMongo(alreadyAcessed);
   if (result.length !== 0) {
-    return res.status(400).json({
+    return res.status(200).json({
       status: "error",
       message: "User already visited this webpage",
     });
@@ -17,11 +17,15 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   const collection = db.collection("visitors");
   await collection.insertOne({
-    enteredAt: new Date(),
+    enteredAt: new Date().toLocaleDateString(),
     ip: fetchApi.query,
+    timezone: fetchApi.timezone,
   });
 
-  return res
-    .status(201)
-    .json({ status: "ok", enteredAt: new Date(), ip: fetchApi.query });
+  return res.status(201).json({
+    status: "ok",
+    enteredAt: new Date(),
+    ip: fetchApi.query,
+    timezone: fetchApi.timezone,
+  });
 };

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { shade } from "polished";
 
 export const Header = styled.div`
   width: 100%;
@@ -10,6 +9,7 @@ export const Header = styled.div`
   animation: go-full-forward 0.5s;
 
   .container {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,10 +21,11 @@ export const Header = styled.div`
       cursor: pointer;
       animation: go-forward 1.5s;
       white-space: nowrap;
-      font-size: calc(1em + 1vw);
+      font-size: calc(1.2em + 1vw);
+      margin-right: 1em;
     }
 
-    div {
+    .links {
       margin-left: 1em;
       flex: 0 1 400px;
       display: flex;
@@ -112,7 +113,7 @@ export const Header = styled.div`
         width: 100%;
         font-size: 1.5em;
         font-weight: bold;
-        color: ${(props) => props.theme.colors.text};
+        color: darkslategrey;
       }
     }
     li:hover {
