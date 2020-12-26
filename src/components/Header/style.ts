@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { shade } from "polished";
 
 export const Header = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +18,7 @@ export const Header = styled.div`
     animation: fadein 1s;
     color: ${(props) => props.theme.colors.headerText};
     h1 {
+      cursor: pointer;
       animation: go-forward 1.5s;
       white-space: nowrap;
     }
@@ -57,6 +59,62 @@ export const Header = styled.div`
     }
     .image {
       display: inline;
+    }
+  }
+
+  .menu-hamburger {
+    width: 2.5em;
+    background-color: transparent;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+  }
+
+  .bleak {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+
+  .menu-lateral {
+    animation: go-back 0.5s;
+    width: 200px;
+    z-index: 10;
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: ${(props) => props.theme.colors.primary};
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    .menu-hamburger {
+      align-self: flex-end;
+      margin: 2.45em 2.4em 2.45em 0;
+    }
+    ul {
+      width: 100%;
+    }
+    li {
+      display: flex;
+      justify-content: center;
+      padding: 1em 0;
+      margin-bottom: 1px solid ${(props) => props.theme.colors.text};
+      cursor: pointer;
+      span {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: ${(props) => props.theme.colors.text};
+      }
+    }
+    li:hover {
+      background-color: ${(props) => shade(0.5, props.theme.colors.primary)};
     }
   }
 

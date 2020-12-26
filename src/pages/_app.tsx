@@ -5,6 +5,8 @@ import GlobalStyle from "../styles/global";
 import LightTheme, { Darktheme } from "../styles/themes";
 import Switch from "react-switch";
 import { shade } from "polished";
+import Head from "next/head";
+import { HeaderComponent } from "../components/Header";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [choosedTheme, setChoosedTheme] = useState(LightTheme);
@@ -16,22 +18,23 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <ThemeProvider theme={choosedTheme}>
+        <Head>
+          <title>Meu Portifólio</title>
+        </Head>
+        <HeaderComponent />
         <Component {...pageProps} />
         <GlobalStyle />
       </ThemeProvider>
       <div
         style={{
-          position: "absolute",
+          position: "fixed",
           top: "0.5em",
           left: "1em",
           animation: "go-forward 1.5s",
         }}
-        onClick={() => {
-          toogleTheme();
-        }}
       >
         <Switch
-          onChange={() => {}}
+          onChange={toogleTheme}
           checked={choosedTheme.title === Darktheme.title}
           checkedIcon={false}
           uncheckedIcon={false}

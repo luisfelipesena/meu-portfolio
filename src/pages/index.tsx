@@ -1,14 +1,8 @@
-import Head from "next/head";
-import { HeaderComponent } from "../components/Header";
 import { MainComponent } from "../components/MainHomepage";
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <>
-      <Head>
-        <title>Meu Portifólio</title>
-      </Head>
-      <HeaderComponent />
       <MainComponent />
     </>
   );

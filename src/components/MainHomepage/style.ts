@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Main = styled.div`
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   .container {
@@ -17,7 +17,7 @@ export const Main = styled.div`
     .image {
       margin-right: 1em;
       img {
-        width: calc(2em + 18vw);
+        width: calc(5em + 18vw);
         max-width: 12em;
         border-radius: 20px;
       }
