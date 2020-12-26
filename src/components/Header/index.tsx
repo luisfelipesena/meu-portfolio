@@ -4,7 +4,7 @@ import React from "react";
 import useSWR from "swr";
 import { UseFetch } from "../../helpers/UseFetch";
 import { Skeleton } from "@material-ui/lab";
-import { UseMediaQuery } from "../../helpers/useMediaQuery";
+import { UseMediaQuery } from "../../helpers/UseMediaQuery";
 
 const fetchInsertVisitor = (url) => UseFetch(url, "POST", undefined);
 const fetchGetVisitors = (url) => UseFetch(url, "GET", undefined);

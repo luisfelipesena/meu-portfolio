@@ -1,6 +1,6 @@
-import { UseMongo } from "../../helpers/useMongo";
+import { UseMongo } from "../../helpers/UseMongo";
 import { NowRequest, NowResponse } from "@vercel/node";
-import { connectToDatabase } from "../../helpers/database";
+import { connectToDatabase } from "../../helpers/Database";
 
 export default async (req: NowRequest, res: NowResponse) => {
   const fetchApi = await (await fetch("http://ip-api.com/json")).json();
