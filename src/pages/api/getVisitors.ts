@@ -1,6 +1,7 @@
 import { NowRequest, NowResponse } from "@vercel/node";
-import { connectToDatabase } from "../../helpers/Database";
-import { useMongo } from "../../helpers/Mongo";
+
+import { connectToDatabase } from "@helpers/Database";
+import { useMongo } from "@helpers/Mongo";
 
 export default async (req: NowRequest, res: NowResponse) => {
   const db = await connectToDatabase(process.env.MONGODB_URI);

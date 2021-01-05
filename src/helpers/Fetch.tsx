@@ -1,3 +1,5 @@
+import React from "react";
+
 export async function useFetch(url, metodo, conteudo, token = null) {
   const response = await fetch(url, {
     method: metodo,

@@ -1,13 +1,14 @@
-import { Header } from "./style";
 import Link from "next/link";
 import React from "react";
-import useSWR from "swr";
-import { useFetch } from "../../helpers/Fetch";
-import { useMediaQuery } from "../../helpers/MediaQuery";
-import { Skeleton } from "@material-ui/lab";
-import { Darktheme } from "../../styles/themes";
 import Switch from "react-switch";
+import useSWR from "swr";
 import { shade } from "polished";
+
+import { Header } from "./style";
+import { useFetch } from "@helpers/Fetch";
+import { useMediaQuery } from "@helpers/MediaQuery";
+import { Skeleton } from "@material-ui/lab";
+import { Darktheme } from "@styles/themes";
 
 const fetchInsertVisitor = (url) => useFetch(url, "POST", undefined);
 const fetchGetVisitors = (url) => useFetch(url, "GET", undefined);
