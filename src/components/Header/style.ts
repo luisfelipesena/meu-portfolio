@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Header = styled.div`
+  position: sticky;
+  top: 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -40,10 +42,16 @@ export const Header = styled.div`
         font-weight: bold;
         transition: 0.2s;
       }
-      span:hover {
+      span:hover,
+      .span:hover {
         animation: shake 0.4s;
       }
     }
+  }
+
+  .spanMobile {
+    display: flex;
+    width: 100%;
   }
 
   .estatisticas {
@@ -102,6 +110,7 @@ export const Header = styled.div`
     }
     ul {
       width: 100%;
+      flex: 1;
     }
     li {
       display: flex;

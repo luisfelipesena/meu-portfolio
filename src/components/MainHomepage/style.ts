@@ -6,10 +6,16 @@ export const Main = styled.div`
   justify-content: center;
   .container {
     display: flex;
-    justify-content: space-between;
-    flex: 0 1 1100px;
-    padding: 2em;
+    flex-direction: column;
+    max-width: 1100px;
     margin: 2em;
+  }
+  .div-main-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1em;
+    width: 100%;
+    padding: 2em;
     font-size: 1.5em;
     box-shadow: 0px 0px 10px ${(props) => props.theme.colors.primary};
     border-radius: 20px;

@@ -4,6 +4,8 @@ import Switch from "react-switch";
 import useSWR from "swr";
 import { shade } from "polished";
 
+import ScrollIntoView from "react-scroll-into-view";
+
 import { Header } from "./style";
 import { useFetch } from "@helpers/Fetch";
 import { useMediaQuery } from "@helpers/MediaQuery";
@@ -15,12 +17,11 @@ const fetchGetVisitors = (url) => useFetch(url, "GET", undefined);
 
 const links: {
   title: string;
-  link: string;
+  link?: string;
   img: string | null;
 }[] = [
-  { title: "Home", link: "/", img: null },
-  { title: "Contato", link: "/contato", img: "./contatos.svg" },
-  { title: "Codepen", link: "/", img: "./codepen.svg" },
+  { title: "Skills", img: "./skills.svg" },
+  { title: "Contato", img: "./contatos.svg" },
   {
     title: "Github",
     link: "https://github.com/luisfelipesena",
@@ -78,16 +79,13 @@ export const HeaderComponent: React.FC<iProps> = ({
         <>
           <div className="container">
             {useSwitch({ toggleTheme, choosedTheme })}
-            <Link href="/">
+            <ScrollIntoView selector="#home" alignToTop={true}>
               <h1>Prazer, Luis Felipe</h1>
-            </Link>
+            </ScrollIntoView>
 
             <div className="links">
               {links.map((l) => {
-                if (l.title === "Home") {
-                  return <></>;
-                }
-                return (
+                return l.link ? (
                   <Link href={l.link}>
                     <span title={l.title}>
                       <img
@@ -97,6 +95,19 @@ export const HeaderComponent: React.FC<iProps> = ({
                       />
                     </span>
                   </Link>
+                ) : (
+                  <ScrollIntoView
+                    selector={`#${l.title.toLowerCase()}`}
+                    className="span"
+                  >
+                    <span title={l.title}>
+                      <img
+                        src={l.img}
+                        alt={l.title}
+                        style={{ height: "36px" }}
+                      />
+                    </span>
+                  </ScrollIntoView>
                 );
               })}
             </div>
@@ -119,9 +130,9 @@ export const HeaderComponent: React.FC<iProps> = ({
         <>
           <div className="container">
             {useSwitch({ toggleTheme, choosedTheme })}
-            <Link href="/">
-              <h1>Prazer, Luis Felipe</h1>
-            </Link>
+            <ScrollIntoView selector="#home" alignToTop={true}>
+              <h1 style={{ animation: 0 }}>Prazer, Luis Felipe</h1>
+            </ScrollIntoView>
             <button
               className="menu-hamburger"
               onClick={() => setMenuClicked((e) => !e)}
@@ -134,9 +145,9 @@ export const HeaderComponent: React.FC<iProps> = ({
         <>
           <div className="container">
             {useSwitch({ toggleTheme, choosedTheme })}
-            <Link href="/">
-              <h1>Prazer, Luis Felipe</h1>
-            </Link>
+            <ScrollIntoView selector="#home" alignToTop={true}>
+              <h1 style={{ animation: 0 }}>Prazer, Luis Felipe</h1>
+            </ScrollIntoView>
             <button
               className="menu-hamburger"
               onClick={() => setMenuClicked((e) => !e)}
@@ -156,13 +167,39 @@ export const HeaderComponent: React.FC<iProps> = ({
               {links.map((l, i) => {
                 return (
                   <li onClick={() => setMenuClicked(false)} key={i}>
-                    <Link href={l.link} key={i}>
-                      <span>{l.title}</span>
-                    </Link>
+                    {l.link ? (
+                      <Link href={l.link} key={i}>
+                        <span>{l.title}</span>
+                      </Link>
+                    ) : (
+                      <ScrollIntoView
+                        className="spanMobile"
+                        selector={`#${l.title.toLowerCase()}`}
+                        alignToTop={true}
+                      >
+                        <span>{l.title}</span>
+                      </ScrollIntoView>
+                    )}
                   </li>
                 );
               })}
             </ul>
+            <div
+              className="estatisticas"
+              style={{ marginBottom: "10em", animation: 0 }}
+            >
+              <h4>Acessos</h4>
+              {data ? (
+                <>
+                  <span>
+                    {data.data}
+                    <img alt="arrow up" src="./arrow-up.png" />
+                  </span>
+                </>
+              ) : (
+                <Skeleton width={"100%"} height={"2em"} />
+              )}
+            </div>
           </div>
         </>
       )}
