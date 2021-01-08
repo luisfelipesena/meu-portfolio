@@ -9,6 +9,7 @@ export const Header = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.colors.primary};
   animation: go-full-forward 0.5s;
+  z-index: 10;
 
   .container {
     position: relative;
