@@ -85,7 +85,6 @@ export const Header = styled.div`
     position: absolute;
     left: 0;
     top: 0;
-    bottom: 0;
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.5);
@@ -99,7 +98,8 @@ export const Header = styled.div`
     position: fixed;
     right: 0;
     top: 0;
-    bottom: 0;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
     background-color: ${(props) => props.theme.colors.primary};
     display: flex;
     flex-direction: column;

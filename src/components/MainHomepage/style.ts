@@ -35,6 +35,10 @@ export const Main = styled.div`
       text-align: center;
       flex-direction: column;
       font-size: calc(0.6em + 0.5vw);
+      p {
+        margin-top: 1em;
+        font-family: "Ubuntu", "sans-serif";
+      }
     }
     @media (max-width: 768px) {
       flex-wrap: wrap;

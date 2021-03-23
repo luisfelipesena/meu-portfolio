@@ -186,7 +186,7 @@ export const HeaderComponent: React.FC<iProps> = ({
             </ul>
             <div
               className="estatisticas"
-              style={{ marginBottom: "10em", animation: 0 }}
+              style={{ margin: "1em 0 2em 0", animation: 0 }}
             >
               <h4>Acessos</h4>
               {data ? (

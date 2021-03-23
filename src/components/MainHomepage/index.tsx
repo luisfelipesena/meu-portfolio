@@ -11,14 +11,10 @@ export const MainComponent: React.FC = () => {
           <div className="content">
             <h2>Desenvolvedor Front-end na Cubos Tecnologia</h2>
             <p>
-              Além de estudante de Ciência da Computação na Ufba, estou sempre
-              em busca de novos conhecimentos e procuro também entender a parte
-              do Back-end para construir uma melhor noçâo das melhores boas
-              práticas para os dois lados
-            </p>
-            <p>
-              Desenvolvedor Front-end estudando para se aprimorar em Back e se
-              tornar Full-stack
+              Além de estudante de Ciência da Computação na UFBA, estou sempre
+              em busca de novos conhecimentos e procuro sempre entender a parte
+              do Back-end/ UX e UI e tudo que envolve boas práticas para o
+              desenvolvimento
             </p>
           </div>
         </div>
