@@ -2,9 +2,10 @@ import { Main } from "./style";
 
 export const MainComponent: React.FC = () => {
   return (
-    <Main id="home">
+    <Main>
       <div className="container">
         <div className="div-main-content">
+          <div className="anchor" id="home" />
           <div className="image">
             <img alt="minha foto" src="./minha-foto.jpeg" />
           </div>
@@ -18,39 +19,33 @@ export const MainComponent: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className="div-main-content" id="skills">
-          <div className="image">
-            <img alt="minha foto" src="./minha-foto.jpeg" />
+        <div className="div-main-content">
+          <div className="anchor" id="skills" />
+          <h2>Skilss</h2>
+          <div className="content-secondary">
+            <p>Html</p>
+            <p>Javascript</p>
+            <p>Css</p>
+            <p>Next js</p>
+            <p>Node.js</p>
           </div>
-          <div className="content">
-            <h2>Desenvolvedor Front-end na Cubos Tecnologia</h2>
-            <p>
-              Além de estudante de Ciência da Computação na Ufba, estou sempre
-              em busca de novos conhecimentos e procuro também entender a parte
-              do Back-end para construir uma melhor noçâo das melhores boas
-              práticas para os dois lados
-            </p>
-            <p>
-              Desenvolvedor Front-end estudando para se aprimorar em Back e se
-              tornar Full-stack
-            </p>
+          <div className="content-secondary">
+            <p>Git</p>
+            <p>Soft Skills</p>
+            <p>SDK</p>
+            <p>Scss</p>
+            <p>Webpack</p>
           </div>
         </div>
-        <div className="div-main-content" id="contato">
-          <div className="image">
-            <img alt="minha foto" src="./minha-foto.jpeg" />
-          </div>
+        <div className="div-main-content">
+          <div className="anchor" id="contato" />
           <div className="content">
-            <h2>Desenvolvedor Front-end na Cubos Tecnologia</h2>
+            <h2>Contato</h2>
             <p>
-              Além de estudante de Ciência da Computação na Ufba, estou sempre
-              em busca de novos conhecimentos e procuro também entender a parte
-              do Back-end para construir uma melhor noçâo das melhores boas
-              práticas para os dois lados
-            </p>
-            <p>
-              Desenvolvedor Front-end estudando para se aprimorar em Back e se
-              tornar Full-stack
+              E-mail:{" "}
+              <a href="mailto:luisfelipesena@gmail.com">
+                luisfelipesena@gmail.com
+              </a>
             </p>
           </div>
         </div>

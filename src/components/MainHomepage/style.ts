@@ -11,8 +11,10 @@ export const Main = styled.div`
     margin: 2em;
   }
   .div-main-content {
+    position: relative;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     margin-bottom: 1em;
     width: 100%;
     padding: 2em;
@@ -22,12 +24,16 @@ export const Main = styled.div`
     animation: go-full-forward 1s;
     .image {
       align-self: center;
-      margin-right: 1em;
+      margin-bottom: 1em;
       img {
         width: calc(5em + 20vw);
         max-width: 15em;
         border-radius: 20px;
       }
+    }
+    .anchor {
+      position: absolute;
+      top: -5em;
     }
     .content {
       display: flex;
@@ -37,6 +43,19 @@ export const Main = styled.div`
       font-size: calc(0.6em + 0.5vw);
       p {
         margin-top: 1em;
+        font-family: "Ubuntu", "sans-serif";
+      }
+    }
+    .content-secondary {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      text-align: center;
+      font-size: calc(0.6em + 0.5vw);
+      margin-top: 2em;
+      p {
+        margin: 0 1em;
         font-family: "Ubuntu", "sans-serif";
       }
     }
