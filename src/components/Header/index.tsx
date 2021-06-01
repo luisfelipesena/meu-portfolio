@@ -86,7 +86,7 @@ export const HeaderComponent: React.FC<iProps> = ({
             <div className="links">
               {links.map((l) => {
                 return l.link ? (
-                  <Link href={l.link}>
+                  <a href={l.link} target="_blank" className="span">
                     <span title={l.title}>
                       <img
                         src={l.img}
@@ -94,7 +94,7 @@ export const HeaderComponent: React.FC<iProps> = ({
                         style={{ height: "36px" }}
                       />
                     </span>
-                  </Link>
+                  </a>
                 ) : (
                   <ScrollIntoView
                     selector={`#${l.title.toLowerCase()}`}

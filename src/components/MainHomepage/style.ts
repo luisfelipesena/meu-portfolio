@@ -58,6 +58,9 @@ export const Main = styled.div`
         margin: 0 1em;
         font-family: "Ubuntu", "sans-serif";
       }
+      img {
+        width: 100%;
+      }
     }
     @media (max-width: 768px) {
       flex-wrap: wrap;

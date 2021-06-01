@@ -8,7 +8,7 @@ import GlobalStyle from "@styles/global";
 import LightTheme, { Darktheme } from "@styles/themes";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const [choosedTheme, setChoosedTheme] = useState(LightTheme);
+  const [choosedTheme, setChoosedTheme] = useState(Darktheme);
   const toggleTheme = () => {
     setChoosedTheme(
       choosedTheme.title === LightTheme.title ? Darktheme : LightTheme
