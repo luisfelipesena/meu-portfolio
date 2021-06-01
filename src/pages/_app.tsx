@@ -5,10 +5,10 @@ import Head from "next/head";
 
 import { HeaderComponent } from "@components/Header";
 import GlobalStyle from "@styles/global";
-import { Darktheme } from "@styles/themes";
+import Lightheme from "@styles/themes";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const [choosedTheme, setChoosedTheme] = useState(Darktheme);
+  const [choosedTheme, setChoosedTheme] = useState(Lightheme);
 
   return (
     <>
