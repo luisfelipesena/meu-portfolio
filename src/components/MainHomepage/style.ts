@@ -22,6 +22,9 @@ export const Main = styled.div`
     box-shadow: 0px 0px 10px ${(props) => props.theme.colors.primary};
     border-radius: 20px;
     animation: go-full-forward 1s;
+    @media (max-width: 768px) {
+      padding: 1em;
+    }
     .image {
       align-self: center;
       margin-bottom: 1em;
@@ -71,6 +74,19 @@ export const Main = styled.div`
       }
     }
   }
+  .mail {
+    color: ${(props) => props.theme.colors.secondaryText};
+    text-decoration: underline;
+  }
+
+  .skills-images {
+    max-width: 400px;
+  }
+
+  .imagesDiv {
+    gap: 2em;
+  }
+
   @keyframes go-full-forward {
     0% {
       transform: translateX(-1980px);

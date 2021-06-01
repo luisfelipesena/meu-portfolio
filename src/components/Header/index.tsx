@@ -21,6 +21,7 @@ const links: {
   img: string | null;
 }[] = [
   { title: "Skills", img: "./skills.svg" },
+  { title: "Projetos", img: "./projeto.svg" },
   { title: "Contato", img: "./contatos.svg" },
   {
     title: "Github",
