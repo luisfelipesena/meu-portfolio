@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import Switch from "react-switch";
 import useSWR from "swr";
 import { shade } from "polished";
@@ -10,7 +10,7 @@ import { Header } from "./style";
 import { useFetch } from "@helpers/Fetch";
 import { useMediaQuery } from "@helpers/MediaQuery";
 import { Skeleton } from "@material-ui/lab";
-import { Darktheme } from "@styles/themes";
+import LightTheme, { Darktheme } from "@styles/themes";
 
 const fetchInsertVisitor = (url) => useFetch(url, "POST", undefined);
 const fetchGetVisitors = (url) => useFetch(url, "GET", undefined);
@@ -35,7 +35,6 @@ const links: {
 ];
 
 interface iProps {
-  toggleTheme(): void;
   choosedTheme: {
     title: string;
     colors: {
@@ -46,10 +45,22 @@ interface iProps {
       primary: string;
     };
   };
+  setChoosedTheme: React.Dispatch<
+    React.SetStateAction<{
+      title: string;
+      colors: {
+        background: string;
+        text: string;
+        secondaryText: string;
+        headerText: string;
+        primary: string;
+      };
+    }>
+  >;
 }
 export const HeaderComponent: React.FC<iProps> = ({
-  toggleTheme,
   choosedTheme,
+  setChoosedTheme,
 }) => {
   const isMobile = useMediaQuery("(max-width: 900px)");
   const [menuClicked, setMenuClicked] = React.useState(false);
@@ -62,6 +73,29 @@ export const HeaderComponent: React.FC<iProps> = ({
     "/api/getVisitors",
     fetchGetVisitors
   );
+
+  const toggleTheme = () => {
+    localStorage.setItem(
+      "theme",
+      choosedTheme.title === LightTheme.title
+        ? JSON.stringify(Darktheme)
+        : JSON.stringify(LightTheme)
+    );
+    setChoosedTheme(
+      choosedTheme.title === LightTheme.title ? Darktheme : LightTheme
+    );
+  };
+
+  if (typeof window !== "undefined") {
+    const storage = localStorage.getItem("theme");
+    useEffect(() => {
+      localStorage.setItem(
+        "theme",
+        storage ? storage : JSON.stringify(Darktheme)
+      );
+      setChoosedTheme(JSON.parse(storage) ?? Darktheme);
+    }, []);
+  }
 
   if (insertError || getError) {
     return (
