@@ -30,7 +30,7 @@ export const MainComponent: React.FC = () => {
               e<br /> "Edx201: How to Learn Online" da{" "}
               <a
                 className="mail"
-                href="https://courses.edx.org/certificates/717d83ab53a841fdb3c9e84557a9e23e"
+                href="https://courses.edx.org/certificates/91a124e8dde44285aa1c21295243f202"
                 target="_blank"
               >
                 Edx
