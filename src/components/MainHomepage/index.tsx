@@ -23,6 +23,7 @@ export const MainComponent: React.FC = () => {
               <a
                 className="mail"
                 href="https://courses.edx.org/certificates/717d83ab53a841fdb3c9e84557a9e23e"
+                target="_blank"
               >
                 HarvardX
               </a>{" "}
@@ -30,6 +31,7 @@ export const MainComponent: React.FC = () => {
               <a
                 className="mail"
                 href="https://courses.edx.org/certificates/717d83ab53a841fdb3c9e84557a9e23e"
+                target="_blank"
               >
                 Edx
               </a>
@@ -86,6 +88,11 @@ export const MainComponent: React.FC = () => {
           <div className="anchor" id="projetos" />
           <h2>Projetos pessoais</h2>
           <div className="content-secondary imagesDiv">
+            <img
+              src={
+                "https://cdn.discordapp.com/attachments/454459176622751757/849350382730739772/Desktop_2021.06.01_-_15.11.44.09.gif"
+              }
+            />
             <img
               src={
                 "https://media-exp1.licdn.com/dms/image/C4D2DAQGy6bJwzS7GXw/profile-treasury-image-shrink_1920_1920/0/1595130859880?e=1622656800&v=beta&t=v39z4PSsg_GgQw9kB8PUZAYwNs4wMjvR7th-OC2xxH8"
