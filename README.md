@@ -16,5 +16,3 @@ Nesse projeto estou desenvolvendo meu portifólio online sob o domínio: `https:
   - pages
     - api
   - styles
-
-## Imagens do site atual:
