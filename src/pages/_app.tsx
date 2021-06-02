@@ -5,10 +5,17 @@ import Head from "next/head";
 
 import { HeaderComponent } from "@components/Header";
 import GlobalStyle from "@styles/global";
-import Lightheme from "@styles/themes";
+import { Darktheme } from "@styles/themes";
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const [choosedTheme, setChoosedTheme] = useState(Lightheme);
+  const [choosedTheme, setChoosedTheme] = useState(Darktheme);
+
+  useEffect(() => {
+    const oldTheme = localStorage.getItem("theme");
+    if (oldTheme) {
+      setChoosedTheme(JSON.parse(oldTheme));
+    }
+  }, []);
 
   return (
     <>

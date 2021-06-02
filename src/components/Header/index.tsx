@@ -87,17 +87,6 @@ export const HeaderComponent: React.FC<iProps> = ({
     );
   };
 
-  if (typeof window !== "undefined") {
-    const storage = localStorage.getItem("theme");
-    useEffect(() => {
-      localStorage.setItem(
-        "theme",
-        storage ? storage : JSON.stringify(Darktheme)
-      );
-      setChoosedTheme(JSON.parse(storage) ?? Darktheme);
-    }, []);
-  }
-
   if (insertError || getError) {
     return (
       <Header>
