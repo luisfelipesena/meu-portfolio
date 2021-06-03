@@ -16,7 +16,7 @@ export const useUsers = () => {
       undefined
     );
     setUserAcesses(
-      fetchGetVisitors.data ? Number(fetchGetVisitors.data) : null
+      fetchGetVisitors.data.amount ? Number(fetchGetVisitors.data.amount) : null
     );
     return {
       data: fetchGetVisitors.data,
