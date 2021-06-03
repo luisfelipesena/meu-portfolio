@@ -45,7 +45,7 @@ export const MainComponent: React.FC = () => {
         </div>
         <div className="div-main-content">
           <div className="anchor" id="skills" />
-          <h2>Skilss</h2>
+          <h2>Skills</h2>
           <div className="content-secondary imagesDiv">
             <img
               title="Github Content"
