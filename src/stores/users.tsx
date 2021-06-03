@@ -32,7 +32,7 @@ export const useUsers = () => {
     );
 
     return {
-      data: fetchInsertVisitors,
+      data: fetchInsertVisitors.data,
       error: fetchInsertVisitors.status === "error",
     };
   };

@@ -11,7 +11,9 @@ export default async (_req: NowRequest, res: NowResponse) => {
     const result = await useMongo(collection);
 
     result.forEach(() => visitors++);
-    return res.status(201).json({ status: "ok", data: visitors });
+    return res
+      .status(201)
+      .json({ status: "ok", data: { ammount: visitors, users: result } });
   } catch (error) {
     return res.status(200).json({
       status: "error",
