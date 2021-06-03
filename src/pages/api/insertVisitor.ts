@@ -3,7 +3,7 @@ import { NowRequest, NowResponse } from "@vercel/node";
 import { useMongo } from "@helpers/Mongo";
 import { connectToDatabase } from "@helpers/Database";
 
-export default async (req: NowRequest, res: NowResponse) => {
+export default async (_req: NowRequest, res: NowResponse) => {
   const fetchApi = await (await fetch("http://ip-api.com/json")).json();
   const db = await connectToDatabase(process.env.MONGODB_URI);
 
@@ -20,13 +20,15 @@ export default async (req: NowRequest, res: NowResponse) => {
   await collection.insertOne({
     enteredAt: new Date().toLocaleDateString(),
     ip: fetchApi.query,
-    timezone: fetchApi.timezone,
+    city: fetchApi.city,
+    region: fetchApi.regionName,
   });
 
   return res.status(201).json({
     status: "ok",
     enteredAt: new Date(),
     ip: fetchApi.query,
-    timezone: fetchApi.timezone,
+    city: fetchApi.city,
+    region: fetchApi.regionName,
   });
 };
