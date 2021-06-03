@@ -1,19 +1,15 @@
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Switch from "react-switch";
-import useSWR from "swr";
 import { shade } from "polished";
+import { useStores } from "src/stores";
 
 import ScrollIntoView from "react-scroll-into-view";
 
 import { Header } from "./style";
-import { useFetch } from "@helpers/Fetch";
 import { useMediaQuery } from "@helpers/MediaQuery";
 import { Skeleton } from "@material-ui/lab";
 import LightTheme, { Darktheme } from "@styles/themes";
-
-const fetchInsertVisitor = (url) => useFetch(url, "POST", undefined);
-const fetchGetVisitors = (url) => useFetch(url, "GET", undefined);
 
 const links: {
   title: string;
@@ -63,17 +59,29 @@ export const HeaderComponent: React.FC<iProps> = ({
   choosedTheme,
   setChoosedTheme,
 }) => {
-  const isMobile = useMediaQuery("(max-width: 900px)");
-  const [menuClicked, setMenuClicked] = React.useState(false);
+  const {
+    usersStore: { getVisitors, insertVisitor, userAcesses },
+  } = useStores();
 
-  const { error: insertError } = useSWR(
-    "/api/insertVisitor",
-    fetchInsertVisitor
-  );
-  const { data, error: getError } = useSWR(
-    "/api/getVisitors",
-    fetchGetVisitors
-  );
+  const isMobile = useMediaQuery("(max-width: 900px)");
+  const [menuClicked, setMenuClicked] = useState(false);
+
+  const [getError, setGetError] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("insertedVisitor")) {
+      getVisitors().then((r) => {
+        setGetError(r.error);
+      });
+    } else {
+      insertVisitor().then(() => {
+        localStorage.setItem("insertedVisitor", "true");
+        getVisitors().then((r) => {
+          setGetError(r.error);
+        });
+      });
+    }
+  }, []);
 
   const toggleTheme = () => {
     localStorage.setItem(
@@ -87,7 +95,7 @@ export const HeaderComponent: React.FC<iProps> = ({
     );
   };
 
-  if (insertError || getError) {
+  if (getError) {
     return (
       <Header>
         <div className="container" style={{ flexDirection: "column" }}>
@@ -139,10 +147,10 @@ export const HeaderComponent: React.FC<iProps> = ({
           </div>
           <div className="estatisticas">
             <h4>Acessos</h4>
-            {data ? (
+            {userAcesses ? (
               <>
                 <span>
-                  {data.data}
+                  {userAcesses}
                   <img alt="arrow up" src="./arrow-up.png" />
                 </span>
               </>
@@ -214,10 +222,10 @@ export const HeaderComponent: React.FC<iProps> = ({
               style={{ margin: "1em 0 2em 0", animation: 0 }}
             >
               <h4>Acessos</h4>
-              {data ? (
+              {userAcesses ? (
                 <>
                   <span>
-                    {data.data}
+                    {userAcesses}
                     <img alt="arrow up" src="./arrow-up.png" />
                   </span>
                 </>
