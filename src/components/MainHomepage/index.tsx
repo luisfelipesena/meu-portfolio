@@ -1,6 +1,17 @@
+import { useEffect, useState } from "react";
 import { Main } from "./style";
+import { useI18n } from "src/translate/i18n";
 
 export const MainComponent: React.FC = () => {
+  const [language, setLanguage] = useState("");
+
+  useEffect(() => {
+    const local = localStorage.getItem("i18nextLng");
+    if (local) {
+      setLanguage(local);
+    }
+  }, []);
+
   return (
     <Main>
       <div className="container">
@@ -10,8 +21,10 @@ export const MainComponent: React.FC = () => {
             <img alt="minha foto" src="./minha-foto.jpeg" />
           </div>
           <div className="content">
-            <h2>Desenvolvedor Front-end na Cubos Tecnologia</h2>
-            <p>
+            <h2 suppressHydrationWarning>
+              Desenvolvedor Front-end na Cubos Tecnologia
+            </h2>
+            <p suppressHydrationWarning>
               Além de estudante de Ciência da Computação na UFBA, estou sempre
               em busca de novos conhecimentos procurando sempre entender sobre
               UX e UI, assim como a parte de Back end e tudo que envolve boas
@@ -45,7 +58,7 @@ export const MainComponent: React.FC = () => {
         </div>
         <div className="div-main-content">
           <div className="anchor" id="skills" />
-          <h2>Skills</h2>
+          <h2 suppressHydrationWarning>{useI18n().t("skills")}</h2>
           <div className="content-secondary imagesDiv">
             <img
               title="Github Content"
@@ -100,8 +113,8 @@ export const MainComponent: React.FC = () => {
           </div>
         </div>
         <div className="div-main-content">
-          <div className="anchor" id="projetos" />
-          <h2>Projetos pessoais</h2>
+          <div className="anchor" id="projects" />
+          <h2 suppressHydrationWarning>{useI18n().t("projects")}</h2>
           <div className="content-secondary imagesDiv">
             <img
               src={
@@ -142,9 +155,9 @@ export const MainComponent: React.FC = () => {
           </div>
         </div>
         <div className="div-main-content">
-          <div className="anchor" id="contato" />
+          <div className="anchor" id="contact" />
           <div className="content">
-            <h2>Contato</h2>
+            <h2 suppressHydrationWarning>{useI18n().t("contact")}</h2>
             <p>
               E-mail:{" "}
               <a href="mailto:luisfelipesena@gmail.com" className="mail">
@@ -173,6 +186,20 @@ export const MainComponent: React.FC = () => {
             </p>
           </div>
         </div>
+      </div>
+      <div className="footer">
+        <select
+          value={language}
+          onChange={(ev) => {
+            setLanguage(ev.target.value);
+            localStorage.setItem("i18nextLng", ev.target.value);
+            window.location.reload();
+            window.scrollTo(0, 0);
+          }}
+        >
+          <option value="pt-BR">pt-BR</option>
+          <option value="en-US">en-US</option>
+        </select>
       </div>
     </Main>
   );

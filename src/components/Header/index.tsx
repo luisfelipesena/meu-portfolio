@@ -10,24 +10,28 @@ import { Header } from "./style";
 import { useMediaQuery } from "@helpers/MediaQuery";
 import { Skeleton } from "@material-ui/lab";
 import LightTheme, { Darktheme } from "@styles/themes";
+import { useI18n } from "src/translate/i18n";
 
 const links: {
+  key: string;
   title: string;
   link?: string;
   img: string | null;
 }[] = [
-  { title: "Skills", img: "./skills.svg" },
-  { title: "Projetos", img: "./projeto.svg" },
-  { title: "Contato", img: "./contatos.svg" },
+  { title: useI18n().t("skills"), img: "./skills.svg", key: "skills" },
+  { title: useI18n().t("projects"), img: "./projeto.svg", key: "projects" },
+  { title: useI18n().t("contact"), img: "./contatos.svg", key: "contact" },
   {
     title: "Github",
     link: "https://github.com/luisfelipesena",
     img: "./github.svg",
+    key: "github",
   },
   {
     title: "Linkedln",
     link: "https://www.linkedin.com/in/luisfelipesena/",
     img: "./linkedin.svg",
+    key: "linkedln",
   },
 ];
 
@@ -112,15 +116,21 @@ export const HeaderComponent: React.FC<iProps> = ({
           <div className="container">
             {useSwitch({ toggleTheme, choosedTheme })}
             <ScrollIntoView selector="#home" alignToTop={true}>
-              <h1>Prazer, Luis Felipe</h1>
+              <h1 suppressHydrationWarning title="Home">
+                {useI18n().t("title")}
+              </h1>
             </ScrollIntoView>
 
             <div className="links">
               {links.map((l, i) => {
                 return l.link ? (
                   <a href={l.link} target="_blank" className="span" key={i}>
-                    <span title={l.title}>
+                    <label suppressHydrationWarning className="label">
+                      {l.title}
+                    </label>
+                    <span>
                       <img
+                        suppressHydrationWarning
                         src={l.img}
                         alt={l.title}
                         style={{ height: "36px" }}
@@ -130,11 +140,15 @@ export const HeaderComponent: React.FC<iProps> = ({
                 ) : (
                   <ScrollIntoView
                     key={i}
-                    selector={`#${l.title.toLowerCase()}`}
+                    selector={`#${l.key}`}
                     className="span"
                   >
-                    <span title={l.title}>
+                    <label suppressHydrationWarning className="label">
+                      {l.title}
+                    </label>
+                    <span>
                       <img
+                        suppressHydrationWarning
                         src={l.img}
                         alt={l.title}
                         style={{ height: "36px" }}
@@ -146,7 +160,7 @@ export const HeaderComponent: React.FC<iProps> = ({
             </div>
           </div>
           <div className="estatisticas">
-            <h4>Acessos</h4>
+            <h4 suppressHydrationWarning>{useI18n().t("accesses")}</h4>
             {userAcesses ? (
               <>
                 <span>
@@ -221,7 +235,7 @@ export const HeaderComponent: React.FC<iProps> = ({
               className="estatisticas"
               style={{ margin: "1em 0 2em 0", animation: 0 }}
             >
-              <h4>Acessos</h4>
+              <h4 suppressHydrationWarning>{useI18n().t("accesses")}</h4>
               {userAcesses ? (
                 <>
                   <span>

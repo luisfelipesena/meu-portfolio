@@ -20,21 +20,19 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   }, []);
 
   return (
-    <>
-      <StoresProvider>
-        <ThemeProvider theme={choosedTheme}>
-          <Head>
-            <title>Meu Portifólio</title>
-          </Head>
-          <HeaderComponent
-            choosedTheme={choosedTheme}
-            setChoosedTheme={setChoosedTheme}
-          />
-          <Component {...pageProps} />
-          <GlobalStyle />
-        </ThemeProvider>
-      </StoresProvider>
-    </>
+    <StoresProvider>
+      <ThemeProvider theme={choosedTheme}>
+        <Head>
+          <title>Meu Portifólio</title>
+        </Head>
+        <HeaderComponent
+          choosedTheme={choosedTheme}
+          setChoosedTheme={setChoosedTheme}
+        />
+        <Component {...pageProps} />
+        <GlobalStyle />
+      </ThemeProvider>
+    </StoresProvider>
   );
 };
 

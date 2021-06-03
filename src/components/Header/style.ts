@@ -36,7 +36,14 @@ export const Header = styled.div`
       align-items: center;
       justify-content: space-between;
       animation: go-back 1.5s;
+      .label {
+        color: ${(props) => props.theme.colors.headerText};
+      }
       span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
         border-bottom: 2px solid transparent;
         cursor: pointer;
         font-size: 1.2em;

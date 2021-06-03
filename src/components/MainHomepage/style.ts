@@ -3,12 +3,23 @@ import styled from "styled-components";
 export const Main = styled.div`
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+    max-width: 1100px;
+    margin-bottom: 2.5em;
+    animation: go-full-forward 0.5s;
+  }
   .container {
     display: flex;
     flex-direction: column;
     max-width: 1100px;
     margin: 2em;
+    flex: 1;
   }
   .div-main-content {
     position: relative;
