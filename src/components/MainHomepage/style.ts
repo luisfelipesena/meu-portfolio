@@ -23,7 +23,7 @@ export const Main = styled.div`
     border-radius: 20px;
     animation: go-full-forward 1s;
     @media (max-width: 768px) {
-      padding: 1em;
+      padding: 0.5em;
     }
     .image {
       align-self: center;

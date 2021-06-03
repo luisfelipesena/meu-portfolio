@@ -110,7 +110,7 @@ export const MainComponent: React.FC = () => {
             />
             <img
               src={
-                "https://media-exp1.licdn.com/dms/image/C4D2DAQGy6bJwzS7GXw/profile-treasury-image-shrink_1920_1920/0/1595130859880?e=1622656800&v=beta&t=v39z4PSsg_GgQw9kB8PUZAYwNs4wMjvR7th-OC2xxH8"
+                "https://media-exp1.licdn.com/dms/image/C4D2DAQGy6bJwzS7GXw/profile-treasury-image-shrink_1920_1920/0/1595130859880?e=1622808000&v=beta&t=Tc7pazz1MO4saGSXqbEl2bhe_7WPlhOWdKOsf3r-zCo"
               }
             />
 
