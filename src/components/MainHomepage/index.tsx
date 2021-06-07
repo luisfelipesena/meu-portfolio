@@ -163,7 +163,7 @@ export const MainComponent: React.FC = () => {
                 className="mail"
                 target="_blank"
               >
-                https://github.com/luisfelipesena
+                github.com/luisfelipesena
               </a>
             </p>
             <p>
@@ -173,7 +173,7 @@ export const MainComponent: React.FC = () => {
                 className="mail"
                 target="_blank"
               >
-                https://www.linkedin.com/in/luisfelipesena/
+                linkedin.com/in/luisfelipesena/
               </a>
             </p>
           </div>

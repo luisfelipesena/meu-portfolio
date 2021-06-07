@@ -34,7 +34,10 @@ export const Main = styled.div`
     border-radius: 20px;
     animation: go-full-forward 1s;
     @media (max-width: 768px) {
-      padding: 0.5em;
+      padding: 1em 0.5em;
+      h2 {
+        text-align: center;
+      }
     }
     .image {
       align-self: center;
