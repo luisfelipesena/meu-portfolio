@@ -115,7 +115,7 @@ export const MainComponent: React.FC = () => {
             />
             <img
               src={
-                "https://media-exp1.licdn.com/dms/image/C4D2DAQGy6bJwzS7GXw/profile-treasury-image-shrink_1920_1920/0/1595130859880?e=1622808000&v=beta&t=Tc7pazz1MO4saGSXqbEl2bhe_7WPlhOWdKOsf3r-zCo"
+                "https://raw.githubusercontent.com/luisfelipesena/projetos_iniciais/master/projeto_site_next/Site%20Next%20C%C3%B3pia.png"
               }
             />
 
