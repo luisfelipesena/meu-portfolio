@@ -9,7 +9,7 @@ export const useI18n = () => {
   i18n.use(LanguageDetector).init({
     debug: false,
     defaultNS: "translations",
-    fallbackLng: fallbackLng ? fallbackLng : "pt",
+    fallbackLng: fallbackLng?.includes("en") ? "en" : "pt",
     ns: ["translations"],
     resources: messages,
   });
