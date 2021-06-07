@@ -221,7 +221,7 @@ export const HeaderComponent: React.FC<iProps> = ({
                     ) : (
                       <ScrollIntoView
                         className="spanMobile"
-                        selector={`#${l.title.toLowerCase()}`}
+                        selector={`#${l.key}`}
                         alignToTop={true}
                       >
                         <span>{l.title}</span>
