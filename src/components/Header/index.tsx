@@ -178,7 +178,7 @@ export const HeaderComponent: React.FC<iProps> = ({
           <div className="container">
             {useSwitch({ toggleTheme, choosedTheme })}
             <ScrollIntoView selector="#home" alignToTop={true}>
-              <h1 style={{ animation: 0 }}>Prazer, Luis Felipe</h1>
+              <h1 style={{ animation: 0 }}>{useI18n().t("title")}</h1>
             </ScrollIntoView>
             <button
               className="menu-hamburger"
@@ -193,7 +193,7 @@ export const HeaderComponent: React.FC<iProps> = ({
           <div className="container">
             {useSwitch({ toggleTheme, choosedTheme })}
             <ScrollIntoView selector="#home" alignToTop={true}>
-              <h1 style={{ animation: 0 }}>Prazer, Luis Felipe</h1>
+              <h1 style={{ animation: 0 }}>{useI18n().t("title")}</h1>
             </ScrollIntoView>
             <button
               className="menu-hamburger"

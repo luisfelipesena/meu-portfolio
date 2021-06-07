@@ -96,6 +96,7 @@ export const Main = styled.div`
 
   .imagesDiv {
     gap: 2em;
+    justify-content: center !important;
   }
 
   @keyframes go-full-forward {

@@ -21,38 +21,30 @@ export const MainComponent: React.FC = () => {
             <img alt="minha foto" src="./minha-foto.jpeg" />
           </div>
           <div className="content">
-            <h2 suppressHydrationWarning>
-              Desenvolvedor Front-end na Cubos Tecnologia
-            </h2>
+            <h2 suppressHydrationWarning>{useI18n().t("bodyTitle")}</h2>
             <p suppressHydrationWarning>
-              Além de estudante de Ciência da Computação na UFBA, estou sempre
-              em busca de novos conhecimentos procurando sempre entender sobre
-              UX e UI, assim como a parte de Back end e tudo que envolve boas
-              práticas para o desenvolvimento web.
+              {useI18n().t("bodyFirstDescription")}
             </p>
             <p>
-              Concluí os cursos: <br /> "CS50's Introduction to Computer
-              Science" da{" "}
+              {useI18n().t("bodySecondDescription")}: <br />
+              "CS50's Introduction to Computer Science" -{" "}
               <a
                 className="mail"
                 href="https://courses.edx.org/certificates/717d83ab53a841fdb3c9e84557a9e23e"
                 target="_blank"
               >
                 HarvardX
-              </a>{" "}
-              e<br /> "Edx201: How to Learn Online" da{" "}
+              </a>
+              <br /> "Edx201: How to Learn Online" -{" "}
               <a
                 className="mail"
                 href="https://courses.edx.org/certificates/91a124e8dde44285aa1c21295243f202"
                 target="_blank"
               >
                 Edx
-              </a>{" "}
-              em 2020
+              </a>
               <br />
-              <br /> E também tenho interesse pelo desenvolvimento mobile,
-              principalmente pelo framework: Flutter, porém ainda estou pra
-              aprender mais sobre.
+              <br /> {useI18n().t("bodyThirdDescription")}
             </p>
           </div>
         </div>

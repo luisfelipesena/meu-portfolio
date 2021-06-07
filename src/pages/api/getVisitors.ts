@@ -11,6 +11,7 @@ export default async (_req: NowRequest, res: NowResponse) => {
     const result = await useMongo(collection);
 
     result.forEach(() => visitors++);
+    res.setHeader("Cache-Control", "s-maxage=10, stale-while-revalidating");
     return res
       .status(201)
       .json({ status: "ok", data: { amount: visitors, users: result } });
